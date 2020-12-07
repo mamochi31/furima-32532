@@ -20,22 +20,22 @@
 
 ## productsテーブル
 
-| Column        | Type       | Option                         |
-| ------------- | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| price         | string     | null: false                    |
-| text          | text       | null: false                    |
-| status        | integer    | null: false                    |
-| shipping_fee  | integer    | null: false                    |
-| prefecture    | integer    | null: false                    |
-| shipment_date | integer    | null: false                    |
-| category      | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Option                         |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| price            | integer    | null: false                    |
+| text             | text       | null: false                    |
+| status_id        | integer    | null: false                    |
+| shipping_fee_id  | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| shipment_date_id | integer    | null: false                    |
+| category/id      | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one    :buyers
+- has_one    :buyer
 
 ## buyersテーブル
 
@@ -52,14 +52,15 @@
 
 ## addressesテーブル
 
-| Column       | Type       | Option                         |
-| ------------ | ---------- | ------------------------------ |
-| postal_code  | integer    | null: false                    |
-| city         | string     | null: false                    |
-| address      | string     | null: false                    |
-| building     | string     |                                |
-| phone_number | string     | null: false                    |
-| buyer        | references | null: false, foreign_key: true |
+| Column        | Type       | Option                         |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | string     |                                |
+| phone_number  | string     | null: false                    |
+| buyer         | references | null: false, foreign_key: true |
 
 ### Association
 
