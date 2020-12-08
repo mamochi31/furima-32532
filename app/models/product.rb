@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipment_date
   belongs_to :category
+  has_one_attached :image
 
 
   with_options presence: true do
