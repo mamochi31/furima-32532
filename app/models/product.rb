@@ -10,7 +10,7 @@ class Product < ApplicationRecord
 
 
   with_options presence: true do
-    validates :name, :price, :text
+    validates :name, :price, :text, :image
   end
 
   with_options numericality: { other_than: 1 } do
