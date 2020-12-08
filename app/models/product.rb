@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :user
   belongs_to :status
   belongs_to :shipping_fee
   belongs_to :prefecture
