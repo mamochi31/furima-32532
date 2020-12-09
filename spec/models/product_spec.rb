@@ -40,6 +40,24 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include('Price is not a number')
     end
 
+    it 'priceは全角文字では登録できないこと' do
+      @product.price = 'あいうえお'
+      @product.valid?
+      expect(@product.errors.full_messages).to include('Price is not a number')
+    end
+
+    it 'priceは半角英数混合では登録できないこと' do
+      @product.price = 'abc123'
+      @product.valid?
+      expect(@product.errors.full_messages).to include('Price is not a number')
+    end
+
+    it 'priceは半角英字では登録できないこと' do
+      @product.price = 'abcdefg'
+      @product.valid?
+      expect(@product.errors.full_messages).to include('Price is not a number')
+    end
+
     it 'textが空では登録できないこと' do
       @product.text = nil
       @product.valid?
