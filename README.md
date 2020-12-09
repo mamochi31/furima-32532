@@ -36,6 +36,11 @@
 
 - belongs_to :user
 - has_one    :buyer
+- belongs_to :status
+- belongs_to :shipping_fee
+- belongs_to :prefecture
+- belongs_to :shipment_date
+- belongs_to :category
 
 ## buyersテーブル
 
