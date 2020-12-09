@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
     end
   end
 
-
   private
 
   def product_params
@@ -25,6 +24,4 @@ class ProductsController < ApplicationController
       :name, :price, :text, :image, :status_id, :shipping_fee_id, :prefecture_id, :shipment_date_id, :category_id
     ).merge(user_id: current_user.id)
   end
-
-
 end
