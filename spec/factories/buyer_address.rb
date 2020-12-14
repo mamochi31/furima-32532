@@ -5,6 +5,7 @@ FactoryBot.define do
     prefecture_id { Faker::Number.between(from: 2, to: 48) }
     city { Gimei.city.kanji }
     address { Gimei.town.kanji }
+    building { Gimei.town.kanji }
     phone_number { Faker::Number.number(digits: 11) }
   end
 end
