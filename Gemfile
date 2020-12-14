@@ -71,3 +71,6 @@ gem 'image_processing', '~> 1.2'
 
 # Active Hash
 gem 'active_hash'
+
+# クレジット決済機能
+gem 'payjp'
