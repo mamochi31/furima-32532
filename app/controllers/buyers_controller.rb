@@ -2,7 +2,7 @@ class BuyersController < ApplicationController
   before_action :find_product
   before_action :authenticate_user!
   before_action :move_to_root_path
-  
+
   def index
     @buyer_address = BuyerAddress.new
   end
@@ -23,7 +23,7 @@ class BuyersController < ApplicationController
 
   def buyer_params
     params.permit(
-      :postal_code, :prefecture_id,:city, :address, :buildind, :phone_number, :product_id
+      :postal_code, :prefecture_id, :city, :address, :buildind, :phone_number, :product_id
     ).merge(user_id: current_user.id, token: params[:token])
   end
 
@@ -32,7 +32,7 @@ class BuyersController < ApplicationController
   end
 
   def pay_product
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @product.price,
       card: buyer_params[:token],

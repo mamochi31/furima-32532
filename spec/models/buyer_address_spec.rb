@@ -20,70 +20,70 @@ RSpec.describe BuyerAddress, type: :model do
       @buyer_address.postal_code = nil
       @buyer_address.valid?
       expect(@buyer_address.errors.full_messages).to include(
-        "Postal code can't be blank", "Postal code Input correctly"
+        "Postal code can't be blank", 'Postal code Input correctly'
       )
     end
 
     it 'postal_codeが8桁未満では保存できないこと' do
-      @buyer_address.postal_code = "111-111"
+      @buyer_address.postal_code = '111-111'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'postal_codeに-がなければ保存できないこと' do
-      @buyer_address.postal_code = 11111111
+      @buyer_address.postal_code = 11_111_111
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'postal_codeが全角数字では保存できないこと' do
-      @buyer_address.postal_code = "１２３-４５６７"
+      @buyer_address.postal_code = '１２３-４５６７'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'postal_codeが半角英字では保存できないこと' do
-      @buyer_address.postal_code = "aaa-aaaa"
+      @buyer_address.postal_code = 'aaa-aaaa'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'postal_codeが全角英字では保存できないこと' do
-      @buyer_address.postal_code = "ａａａ-ａａａａ"
+      @buyer_address.postal_code = 'ａａａ-ａａａａ'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'postal_codeがひらがなでは保存できないこと' do
-      @buyer_address.postal_code = "あああ-ああああ"
+      @buyer_address.postal_code = 'あああ-ああああ'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'postal_codeがカタカナでは保存できないこと' do
-      @buyer_address.postal_code = "アアア-アアアア"
+      @buyer_address.postal_code = 'アアア-アアアア'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'postal_codeが漢字では保存できないこと' do
-      @buyer_address.postal_code = "亜亜亜-亜亜亜亜"
+      @buyer_address.postal_code = '亜亜亜-亜亜亜亜'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it 'prefecture_idが空では保存できないこと' do
       @buyer_address.prefecture_id = nil
       @buyer_address.valid?
       expect(@buyer_address.errors.full_messages).to include(
-        "Prefecture can't be blank", "Prefecture Select"
+        "Prefecture can't be blank", 'Prefecture Select'
       )
     end
 
     it 'prefecture_idが1では保存できないこと' do
       @buyer_address.prefecture_id = 1
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Prefecture Select")
+      expect(@buyer_address.errors.full_messages).to include('Prefecture Select')
     end
 
     it 'cityが空では保存できないこと' do
@@ -102,50 +102,50 @@ RSpec.describe BuyerAddress, type: :model do
       @buyer_address.phone_number = nil
       @buyer_address.valid?
       expect(@buyer_address.errors.full_messages).to include(
-        "Phone number can't be blank","Phone number Input only number"
+        "Phone number can't be blank", 'Phone number Input only number'
       )
     end
 
     it 'phone_numberに-あると保存できないこと' do
-      @buyer_address.phone_number = "090-123-456"
+      @buyer_address.phone_number = '090-123-456'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Phone number Input only number")
+      expect(@buyer_address.errors.full_messages).to include('Phone number Input only number')
     end
 
     it 'phone_numberが全角数字では保存できないこと' do
-      @buyer_address.phone_number = "０９０１２３４５６７８"
+      @buyer_address.phone_number = '０９０１２３４５６７８'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Phone number Input only number")
+      expect(@buyer_address.errors.full_messages).to include('Phone number Input only number')
     end
 
     it 'phone_numberが半角英字では保存できないこと' do
-      @buyer_address.phone_number = "aaaaaaaaaaa"
+      @buyer_address.phone_number = 'aaaaaaaaaaa'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Phone number Input only number")
+      expect(@buyer_address.errors.full_messages).to include('Phone number Input only number')
     end
 
     it 'phone_numberが全角英字では保存できないこと' do
-      @buyer_address.phone_number = "ａａａａａａａａａａａ"
+      @buyer_address.phone_number = 'ａａａａａａａａａａａ'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Phone number Input only number")
+      expect(@buyer_address.errors.full_messages).to include('Phone number Input only number')
     end
 
     it 'phone_numberがひらがなでは保存できないこと' do
-      @buyer_address.phone_number = "あああああああああああ"
+      @buyer_address.phone_number = 'あああああああああああ'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Phone number Input only number")
+      expect(@buyer_address.errors.full_messages).to include('Phone number Input only number')
     end
 
     it 'phone_numberがカタカナでは保存できないこと' do
-      @buyer_address.phone_number = "アアアアアアアアアアア"
+      @buyer_address.phone_number = 'アアアアアアアアアアア'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Phone number Input only number")
+      expect(@buyer_address.errors.full_messages).to include('Phone number Input only number')
     end
 
     it 'phone_numberが漢字では保存できないこと' do
-      @buyer_address.phone_number = "亜亜亜亜亜亜亜亜亜亜亜"
+      @buyer_address.phone_number = '亜亜亜亜亜亜亜亜亜亜亜'
       @buyer_address.valid?
-      expect(@buyer_address.errors.full_messages).to include("Phone number Input only number")
+      expect(@buyer_address.errors.full_messages).to include('Phone number Input only number')
     end
   end
 end
