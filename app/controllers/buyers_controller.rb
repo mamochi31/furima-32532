@@ -1,5 +1,7 @@
 class BuyersController < ApplicationController
   before_action :find_product
+  before_action :authenticate_user!
+  before_action :move_to_root_path
   
   def index
     @buyer_address = BuyerAddress.new
@@ -14,6 +16,7 @@ class BuyersController < ApplicationController
     else
       render action: :index
     end
+    @product.update(buyer_id: current_user.id)
   end
 
   private
@@ -35,5 +38,9 @@ class BuyersController < ApplicationController
       card: buyer_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def move_to_root_path
+    redirect_to root_path if (current_user.id == @product.user_id) || @product.buyer_id.present?
   end
 end
