@@ -9,8 +9,8 @@ class BuyerAddress
     validates :prefecture_id, numericality: { other_than: 1, message: 'Select' }
     validates :city
     validates :address
-    validates :phone_number, numericality: { only_integer: true,  message: 'Input only number' }, length: { maximum: 11 }
-    
+    validates :phone_number, numericality: { only_integer: true, message: 'Input only number' }, length: { maximum: 11 }
+
     validates :user_id
     validates :product_id
   end

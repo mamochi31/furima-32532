@@ -36,7 +36,7 @@ RSpec.describe BuyerAddress, type: :model do
     end
 
     it 'postal_codeに-がなければ保存できないこと' do
-      @buyer_address.postal_code = "111111"
+      @buyer_address.postal_code = '111111'
       @buyer_address.valid?
       expect(@buyer_address.errors.full_messages).to include('Postal code Input correctly')
     end
@@ -112,7 +112,7 @@ RSpec.describe BuyerAddress, type: :model do
     end
 
     it 'phone_numberが12桁以上では保存できないこと' do
-      @buyer_address.phone_number = "090123456789"
+      @buyer_address.phone_number = '090123456789'
       @buyer_address.valid?
       expect(@buyer_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
