@@ -7,7 +7,6 @@ class Product < ApplicationRecord
   belongs_to :shipment_date
   belongs_to :category
   has_one_attached :image
-  has_one :buyer
 
   with_options presence: true do
     validates :name, :price, :text, :image
