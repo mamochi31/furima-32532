@@ -12,11 +12,11 @@ class BuyersController < ApplicationController
     if @buyer_address.valid?
       pay_product
       @buyer_address.save
+      @product.update(buyer_id: current_user.id)
       redirect_to root_path
     else
       render action: :index
     end
-    @product.update(buyer_id: current_user.id)
   end
 
   private
